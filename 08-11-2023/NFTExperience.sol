@@ -148,10 +148,11 @@ contract EventTickets is ERC1155, Ownable, ReentrancyGuard {
     }
 
     constructor(
+        address initialOwner,
         address _tokenRegistry,
         address _platformFeeRecipient,
         uint256 _platformFee
-    ) ERC1155("") {
+    ) ERC1155("") Ownable(initialOwner){
         tokenRegistry = _tokenRegistry;
         platformFeeRecipient = _platformFeeRecipient;
         platformFee = _platformFee;
